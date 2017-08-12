@@ -1,5 +1,5 @@
 {% set name = "consul" %}
-{% set version = "0.9.2" %}
+{% set version = "0.9.1" %}
 {% set build_number = 0 %}
 
 package:
@@ -13,11 +13,11 @@ source:
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
   fn: {{ name }}-{{ version }}.zip
-  sha256: e54ef843a82defe4fff9042c5ba953ba6fb510241253fe51d410cf0f95e86d9f  # [osx]
-  sha256: 966b5ae4f149aa1982b037fb5343f4c43f6167b64d09fd01cbd0b5aa13db421a  # [linux32]
-  sha256: 0a2921fc7ca7e4702ef659996476310879e50aeeecb5a205adfdbe7bd8524013  # [linux64]
-  sha256: cdeca9c765e6f43543b229c95c5376b9d60c8ab3b1a790ba94b80cfa1b41ffd5  # [win32]
-  sha256: 1126fc9841e295dfbdf0d4180336452545eee75b3f545d1c6a105ae8a8020a3c  # [win64]
+  sha256: d035207b84c8bd4cdc252b01053d2126b6194e7961a130b11407e6e3a66e4b0e  # [osx]
+  sha256: 5143f419b4ba67b6c4fdd023a26a6563f0a7cf47909e648e490ef552caf03f65  # [linux32]
+  sha256: e997b87e70dc0f4996d7c5ac89f4776a8569ca99c00e5c8b8a0e0eb1042a9d30  # [linux64]
+  sha256: 047117cc205b4541162177684fc1b0f1e6f62b7cae7ea0a3c17ce85afd82df97  # [win32]
+  sha256: 74bc3b131411fbcdc650542b94daa28838619c086617ab75c78504eef507e781  # [win64]
 
 build:
   number: {{ build_number }}
