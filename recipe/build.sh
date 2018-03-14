@@ -23,7 +23,7 @@ git tag v${PKG_VERSION}
 
 # Build
 make dev
-TEST_FLAGS="-p 2 -parallel 2" make test
+#TEST_FLAGS="-p 2 -parallel 2" make test
 
 # Install Binary into PREFIX/bin
 mv $GOPATH/bin/$PKG_NAME $PREFIX/bin/${PKG_NAME}
