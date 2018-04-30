@@ -19,14 +19,16 @@ application developers, making it perfect for modern, elastic infrastructures.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/consul-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/consul-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/consul-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/consul-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/consul-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/consul-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/consul-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/consul-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/consul-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/consul-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/consul-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/consul-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/consul/badges/version.svg)](https://anaconda.org/conda-forge/consul)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/consul/badges/downloads.svg)](https://anaconda.org/conda-forge/consul)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-consul-green.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) |
 
 Installing consul
 =================
