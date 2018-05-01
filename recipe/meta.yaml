@@ -5,7 +5,7 @@
 {% set sha256_win64 = "4d0b517907f708eae43b85f96ea5a6c92842a7350aaa20a88600d9e2589a1afb" %}
 
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
@@ -20,9 +20,16 @@ source:
 build:
   number: 0
 
+requirements:
+  build:
+    - go 1.10.*  # [not win]
+    - git  # [not win]
+    - make  # [not win]
+    - toolchain  # [not win]
+
 test:
   commands:
-    - consul -v
+    - {{ name|lower }} -v
 
 about:
   home: https://www.consul.io
