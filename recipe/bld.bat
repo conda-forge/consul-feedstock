@@ -1,1 +1,1 @@
-XCOPY consul.exe %LIBRARY_BIN%
+XCOPY %PKG_NAME%.exe %LIBRARY_BIN%
