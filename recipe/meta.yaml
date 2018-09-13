@@ -1,5 +1,5 @@
 {% set name = "consul" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 source:
   url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
   fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-  sha256: 197d60a2a892da6d840f2403d6fb23603d76c892b00c7ce96c70d687d14b0260  # [not win]
+  sha256: 8ae03c1b9e555e60c0ec3e8d3a4ba0b70b779789088239a1c38edd72030f033a  # [not win]
 
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
   fn: {{ name }}-{{ version }}.zip  # [win]
-  sha256: 56cee9cf39997f7ee881779c4bc1b6c39ba4f032a34a83552c76df031fa693bd  # [win64]
+  sha256: 5c2a8842471ba0d68872ccd3d54c7baae97e52cfd69006a2f7c1a6be0cf3c650  # [win64]
 
 build:
   number: 0
