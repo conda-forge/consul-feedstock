@@ -15,7 +15,7 @@ source:
   sha256: 5c2a8842471ba0d68872ccd3d54c7baae97e52cfd69006a2f7c1a6be0cf3c650  # [win64]
 
 build:
-  number: 0
+  number: 1000
 
 requirements:
   build:
