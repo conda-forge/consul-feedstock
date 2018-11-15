@@ -1,7 +1,7 @@
 # Turn the work-folder into GOPATH
 export GOPATH=${SRC_DIR}
 export PATH=${GOPATH}/bin:$PATH
-pushd src/github.com/hashicorp/vault
+pushd src/github.com/hashicorp/${PKG_NAME}
 
 # Git Initialize
 # Apps tend to use git info to create version strings
