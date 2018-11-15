@@ -19,10 +19,11 @@ build:
 
 requirements:
   build:
-    - go 1.10.*  # [not win]
-    - git  # [not win]
+    - {{ compiler('go') }}  # [not win]
+    - {{ compiler('c') }}  # [not win]
     - make  # [not win]
-    - toolchain  # [not win]
+    - git  # [not win]
+  host:
 
 test:
   commands:
@@ -33,10 +34,10 @@ about:
   license: MPL 2.0
   summary: Service discovery and configuration made easy.
   description: |
-    Consul is a tool for discovering and configuring services in your 
-    infrastructure. It provides several key features, including: 
+    Consul is a tool for discovering and configuring services in your
+    infrastructure. It provides several key features, including:
     Service Discovery, Health Checking, KV Store, Multi Datacenter.
-    Consul is designed to be friendly to both the DevOps community and 
+    Consul is designed to be friendly to both the DevOps community and
     application developers, making it perfect for modern, elastic infrastructures.
 
   doc_url: https://www.consul.io/docs/index.html
