@@ -1,28 +1,28 @@
 {% set name = "consul" %}
-{% set version = "1.3.1" %}
+{% set version = "1.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-  sha256: 6815e14df16f8fe09e08268a127a3c107522995f5a5cedc111002c7b636c785e  # [not win]
+  - folder: src/github.com/hashicorp/{{ name }}  # [not win]
+    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
+    sha256: de7e742d483589c933e265160f0212c209cc2b7200c5b582cdf90227a800539f  # [not win]
 
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
-  fn: {{ name }}-{{ version }}.zip  # [win]
-  sha256: c5f1b5e2fb0f535e48c3973088836f0eda493f9066d0505aee66be6528264bd3  # [win64]
+    url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
+    sha256: 732b2d3b2a09d17c3add1f1e646542174aa48424f11232cb9fe8ea7a53098fb4  # [win64]
 
 build:
   number: 1000
 
 requirements:
   build:
-    - go 1.10.*  # [not win]
-    - git  # [not win]
+    - {{ compiler('go') }}  # [not win]
+    - {{ compiler('c') }}  # [not win]
     - make  # [not win]
-    - toolchain  # [not win]
+    - git  # [not win]
+  host:
 
 test:
   commands:
@@ -33,10 +33,10 @@ about:
   license: MPL 2.0
   summary: Service discovery and configuration made easy.
   description: |
-    Consul is a tool for discovering and configuring services in your 
-    infrastructure. It provides several key features, including: 
+    Consul is a tool for discovering and configuring services in your
+    infrastructure. It provides several key features, including:
     Service Discovery, Health Checking, KV Store, Multi Datacenter.
-    Consul is designed to be friendly to both the DevOps community and 
+    Consul is designed to be friendly to both the DevOps community and
     application developers, making it perfect for modern, elastic infrastructures.
 
   doc_url: https://www.consul.io/docs/index.html
