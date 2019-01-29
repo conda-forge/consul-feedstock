@@ -1,28 +1,27 @@
-{% set name = "consul" %}
-{% set version = "1.4.0" %}
+{% set import_path = "github.com/hashicorp/consul" %}
+{% set version = "1.4.1" %}
+
+{% set name = import_path.split('/')[-1] %}
+{% set pkg_src = 'src' + os.sep+ import_path.replace("/",os.sep) %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - folder: src/github.com/hashicorp/{{ name }}  # [not win]
-    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-    sha256: de7e742d483589c933e265160f0212c209cc2b7200c5b582cdf90227a800539f  # [not win]
-
-    url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
-    sha256: 732b2d3b2a09d17c3add1f1e646542174aa48424f11232cb9fe8ea7a53098fb4  # [win64]
+  - folder: {{ pkg_src }}
+    git_url: https://{{ import_path }}
+    git_tag: v{{ version }}
 
 build:
-  number: 1000
+  number: 0
+  script:
+    - pushd {{ pkg_src }}
+    - go install -v .
 
 requirements:
   build:
-    - {{ compiler('go') }}  # [not win]
-    - {{ compiler('c') }}  # [not win]
-    - make  # [not win]
-    - git  # [not win]
-  host:
+    - {{ compiler('go') }}
 
 test:
   commands:
