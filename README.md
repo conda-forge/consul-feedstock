@@ -2,8 +2,8 @@
 # -*- mode: jinja -*-
 -->
 
-About consul
-============
+About vault
+===========
 
 Home: https://www.consul.io
 
@@ -32,27 +32,27 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-consul-green.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/consul.svg)](https://anaconda.org/conda-forge/consul) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-vault-green.svg)](https://anaconda.org/conda-forge/vault) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vault.svg)](https://anaconda.org/conda-forge/vault) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vault.svg)](https://anaconda.org/conda-forge/vault) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vault.svg)](https://anaconda.org/conda-forge/vault) |
 
-Installing consul
-=================
+Installing vault
+================
 
-Installing `consul` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `vault` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `consul` can be installed with:
+Once the `conda-forge` channel has been enabled, `vault` can be installed with:
 
 ```
-conda install consul
+conda install vault
 ```
 
-It is possible to list all of the versions of `consul` available on your platform with:
+It is possible to list all of the versions of `vault` available on your platform with:
 
 ```
-conda search consul --channel conda-forge
+conda search vault --channel conda-forge
 ```
 
 
@@ -94,17 +94,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating consul-feedstock
-=========================
+Updating vault-feedstock
+========================
 
-If you would like to improve the consul recipe or build a new
+If you would like to improve the vault recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/consul-feedstock are
+Note that all branches in the conda-forge/vault-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
