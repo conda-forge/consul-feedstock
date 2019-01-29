@@ -13,9 +13,6 @@ source:
     git_url: https://{{ import_path }}
     git_tag: v{{ version }}
 
-    #url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
-    #sha256: c1ef914331026a44174986ee74ecc86af8012d063770c01f3b90000f7ee46022  # [win64]
-
 build:
   number: 0
   script:
