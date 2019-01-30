@@ -1,5 +1,5 @@
 {% set import_path = "github.com/hashicorp/consul" %}
-{% set version = "1.4.1" %}
+{% set version = "1.4.2" %}
 
 {% set name = import_path.split('/')[-1] %}
 {% set pkg_src = 'src' + os.sep+ import_path.replace("/",os.sep) %}
@@ -12,6 +12,8 @@ source:
   - folder: {{ pkg_src }}
     git_url: https://{{ import_path }}
     git_tag: v{{ version }}
+    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [false]
+    sha256: 1ee8652e053dda0538a1f7886a856d0a825ec778217082f21aaba096220a1f98  # [false]
 
 build:
   number: 0
