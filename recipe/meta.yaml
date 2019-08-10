@@ -1,5 +1,5 @@
 {% set import_path = "github.com/hashicorp/consul" %}
-{% set version = "1.4.2" %}
+{% set version = "1.4.3" %}
 
 {% set name = import_path.split('/')[-1] %}
 {% set pkg_src = 'src' + os.sep+ import_path.replace("/",os.sep) %}
@@ -10,16 +10,17 @@ package:
 
 source:
   - folder: {{ pkg_src }}
-    git_url: https://{{ import_path }}
-    git_tag: v{{ version }}
-    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [false]
-    sha256: 1ee8652e053dda0538a1f7886a856d0a825ec778217082f21aaba096220a1f98  # [false]
+    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
+    sha256: b00c021ef8781c239b5864173b9f7fb8a140cdd890628a5bc4ad8f16eb8cfedf
 
 build:
   number: 0
   script:
     - pushd {{ pkg_src }}
-    - go install -v .
+    - go install -v
+        -ldflags "-X {{import_path}}/version.GitRelease='v{{version}}'
+                  -X {{import_path}}/version.VersionPrerelease=''"
+        .
 
 requirements:
   build:
