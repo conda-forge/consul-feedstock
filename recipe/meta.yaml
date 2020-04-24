@@ -9,19 +9,17 @@ package:
   version: {{ version }}
 
 source:
-  - folder: {{ pkg_src }}
-    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 5fbf25b8df906dfb4133eedf266a5c4a5af3022428b03a41928e1e48bd59a3b9
+  url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 5fbf25b8df906dfb4133eedf266a5c4a5af3022428b03a41928e1e48bd59a3b9
 
 build:
   number: 0
   script:
-    - pushd {{ pkg_src }}
     - go install -v -ldflags "-X {{import_path}}/version.GitRelease='v{{version}}' -X {{import_path}}/version.VersionPrerelease=''" .
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - {{ compiler('go') }} 1.13
 
 test:
   commands:
@@ -29,7 +27,8 @@ test:
 
 about:
   home: https://www.consul.io
-  license: MPL 2.0
+  license: MPL-2.0
+  license_file: LICENSE
   summary: Service discovery and configuration made easy.
   description: |
     Consul is a tool for discovering and configuring services in your
