@@ -15,7 +15,7 @@ source:
 build:
   number: 0
   script:
-    - go install -v -ldflags "-X {{import_path}}/version.GitRelease='v{{version}}' -X {{import_path}}/version.VersionPrerelease=''" .
+    - go install -v -ldflags "-X {{ import_path }}/version.GitRelease='v{{ version }}' -X {{ import_path }}/version.VersionPrerelease=''" .
 
 requirements:
   build:
