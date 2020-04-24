@@ -15,7 +15,7 @@ source:
 build:
   number: 0
   script:
-    - go install -v -ldflags "-X {{ import_path }}/version.GitRelease='v{{ version }}' -X {{ import_path }}/version.VersionPrerelease=''" .
+    - go install -v -ldflags "-X {{ import_path }}/version.GitRelease='v{{ version }}-conda'" .
 
 requirements:
   build:
@@ -23,7 +23,8 @@ requirements:
 
 test:
   commands:
-    - {{ name|lower }} -v
+    - consul --version | grep -q 'Consul v{{ version }}-conda'  # [unix]
+    - consul --version  # [win]
 
 about:
   home: https://www.consul.io
