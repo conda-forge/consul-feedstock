@@ -3,7 +3,7 @@ About consul
 
 Home: https://www.consul.io
 
-Package license: MPL 2.0
+Package license: MPL-2.0
 
 Feedstock license: BSD 3-Clause
 

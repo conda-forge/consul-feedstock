@@ -1,38 +1,32 @@
-{% set import_path = "github.com/hashicorp/consul" %}
-{% set version = "1.6.3" %}
-
-{% set name = import_path.split('/')[-1] %}
-{% set pkg_src = 'src' + os.sep+ import_path.replace("/",os.sep) %}
+{% set name = "consul" %}
+{% set version = "1.7.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - folder: {{ pkg_src }}
-    url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 69537c7ada98aa619297c03d73896901694e37a14da3c46a2c4a2f6a8f3b5795
+  url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 5fbf25b8df906dfb4133eedf266a5c4a5af3022428b03a41928e1e48bd59a3b9
 
 build:
   number: 0
   script:
-    - pushd {{ pkg_src }}
-    - go install -v
-        -ldflags "-X {{import_path}}/version.GitRelease='v{{version}}'
-                  -X {{import_path}}/version.VersionPrerelease=''"
-        .
+    {% set git_import = "github.com/hashicorp/consul/version" %}
+    - go install -v -ldflags "-X {{ git_import }}.GitDescribe='v{{ version }}'" .
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - {{ compiler('go') }} 1.13
 
 test:
   commands:
-    - {{ name|lower }} -v
+    - consul --version
 
 about:
   home: https://www.consul.io
-  license: MPL 2.0
+  license: MPL-2.0
+  license_file: LICENSE
   summary: Service discovery and configuration made easy.
   description: |
     Consul is a tool for discovering and configuring services in your
