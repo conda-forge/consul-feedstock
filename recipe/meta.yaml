@@ -1,8 +1,5 @@
-{% set import_path = "github.com/hashicorp/consul" %}
+{% set name = "consul" %}
 {% set version = "1.7.2" %}
-
-{% set name = import_path.split('/')[-1] %}
-{% set pkg_src = 'src' + os.sep+ import_path.replace("/",os.sep) %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +12,8 @@ source:
 build:
   number: 0
   script:
-    - go install -v -ldflags "-X {{ import_path }}/version.GitRelease='v{{ version }}-conda'" .
+    {% set git_import = "github.com/hashicorp/consul/version" %}
+    - go install -v -ldflags "-X {{ git_import }}.GitDescribe='v{{ version }}'" .
 
 requirements:
   build:
@@ -23,7 +21,7 @@ requirements:
 
 test:
   commands:
-    - consul --version | grep -q 'Consul v{{ version }}-conda'  # [unix]
+    - consul --version | grep -q 'Consul v{{ version }}'  # [unix]
     - consul --version  # [win]
 
 about:
