@@ -21,8 +21,7 @@ requirements:
 
 test:
   commands:
-    - consul --version | grep -q 'Consul v{{ version }}'  # [unix]
-    - consul --version  # [win]
+    - consul --version
 
 about:
   home: https://www.consul.io
