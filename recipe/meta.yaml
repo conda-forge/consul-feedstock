@@ -1,6 +1,6 @@
 {% set git_import = "github.com/hashicorp/consul/version" %}
 {% set name = "consul" %}
-{% set version = "1.14.11" %}
+{% set version = "1.13.7" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: f31c105beda8efd65432d5ef1c3e47acb9f64e7db099e67cef3a4cb93b10876b
+  sha256: d71c67c0b3094addfd3aaf27614ebe15f4a6d22f07a6a4db9a0601cef7133583
 
 build:
   number: 0
@@ -23,8 +23,10 @@ requirements:
     - sysroot_linux-64 2.17  # [linux64]
 
 test:
+  requires:
+    - gdb
   commands:
-    - consul --version
+    - gdb -ex run -ex bt -ex quit --args consul --version
 
 about:
   home: https://www.consul.io
