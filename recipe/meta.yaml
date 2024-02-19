@@ -1,6 +1,6 @@
 {% set git_import = "github.com/hashicorp/consul/version" %}
 {% set name = "consul" %}
-{% set version = "1.7.3" %}
+{% set version = "1.13.7" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: db1cfede52f73038f9f4d87f4698837cf6f7ff3957994dbdce0db78795a081bd
+  sha256: d71c67c0b3094addfd3aaf27614ebe15f4a6d22f07a6a4db9a0601cef7133583
 
 build:
   number: 0
@@ -18,7 +18,9 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go') }} 1.13
+    - {{ compiler('c') }}
+    - {{ compiler('go-cgo') }}
+    - sysroot_linux-64 2.17  # [linux64]
 
 test:
   commands:
@@ -26,18 +28,15 @@ test:
 
 about:
   home: https://www.consul.io
-  license: MPL-2.0
+  license: BUSL-1.1
   license_file: LICENSE
-  summary: Service discovery and configuration made easy.
+  summary: Connect and configure applications across dynamic, distributed infrastructure.
   description: |
-    Consul is a tool for discovering and configuring services in your
-    infrastructure. It provides several key features, including:
-    Service Discovery, Health Checking, KV Store, Multi Datacenter.
-    Consul is designed to be friendly to both the DevOps community and
-    application developers, making it perfect for modern, elastic infrastructures.
-
-  doc_url: https://www.consul.io/docs/index.html
+    Consul is a distributed, highly available, and data center aware solution to
+    connect and configure applications across dynamic, distributed infrastructure.
+  doc_url: https://www.consul.io/docs
 
 extra:
   recipe-maintainers:
     - sodre
+    - jonashaag
