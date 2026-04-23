@@ -11,7 +11,7 @@ source:
   sha256: db1cfede52f73038f9f4d87f4698837cf6f7ff3957994dbdce0db78795a081bd
 
 build:
-  number: 0
+  number: 1
   script:
     {% set git_import = "github.com/hashicorp/consul/version" %}
     - go install -v -ldflags "-X {{ git_import }}.GitDescribe='v{{ version }}'" .
