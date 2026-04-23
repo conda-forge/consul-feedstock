@@ -1,6 +1,6 @@
 {% set git_import = "github.com/hashicorp/consul/version" %}
 {% set name = "consul" %}
-{% set version = "1.7.3" %}
+{% set version = "1.21.5" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: db1cfede52f73038f9f4d87f4698837cf6f7ff3957994dbdce0db78795a081bd
+  sha256: 52f6c68af43accaa4f1bd65dbecb5f372f4e1eaf3e373e78ea3e59ae83c9d8a2
 
 build:
   number: 0
